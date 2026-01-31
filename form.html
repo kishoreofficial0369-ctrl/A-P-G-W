@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Portfolio - Auto Portfolio Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <a href="index.html" class="back-button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                    </svg>
+                    Back
+                </a>
+                <h1>Build Your Portfolio</h1>
+                <p class="form-subtitle">Fill in your details and watch the magic happen</p>
+            </div>
+
+            <form id="portfolioForm" class="portfolio-form">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-icon">01</span>
+                        Personal Information
+                    </h2>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">Professional Title *</label>
+                        <input type="text" id="title" name="title" required placeholder="Full Stack Developer">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" placeholder="San Francisco, CA">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bio">Bio / About Me *</label>
+                        <textarea id="bio" name="bio" rows="4" required placeholder="Tell us about yourself, your passion, and what drives you..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-icon">02</span>
+                        Skills & Expertise
+                    </h2>
+                    
+                    <div class="form-group">
+                        <label for="skills">Skills (comma separated) *</label>
+                        <input type="text" id="skills" name="skills" required placeholder="JavaScript, React, Node.js, Python, AWS">
+                        <small>Enter your skills separated by commas</small>
+                    </div>
+                </div>
+
+                <!-- Experience -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-icon">03</span>
+                        Work Experience
+                    </h2>
+                    
+                    <div id="experienceContainer">
+                        <div class="experience-item">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Job Title</label>
+                                    <input type="text" name="jobTitle[]" placeholder="Senior Developer">
+                                </div>
+                                <div class="form-group">
+                                    <label>Company</label>
+                                    <input type="text" name="company[]" placeholder="Tech Corp">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Duration</label>
+                                    <input type="text" name="duration[]" placeholder="2020 - Present">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea name="jobDescription[]" rows="3" placeholder="Describe your key responsibilities and achievements..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="add-button" onclick="addExperience()">+ Add Another Experience</button>
+                </div>
+
+                <!-- Projects -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-icon">04</span>
+                        Projects
+                    </h2>
+                    
+                    <div id="projectsContainer">
+                        <div class="project-item">
+                            <div class="form-group">
+                                <label>Project Name</label>
+                                <input type="text" name="projectName[]" placeholder="E-Commerce Platform">
+                            </div>
+                            <div class="form-group">
+                                <label>Technologies</label>
+                                <input type="text" name="projectTech[]" placeholder="React, Node.js, MongoDB">
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea name="projectDescription[]" rows="3" placeholder="Describe what you built and its impact..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Project Link (optional)</label>
+                                <input type="url" name="projectLink[]" placeholder="https://github.com/username/project">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="add-button" onclick="addProject()">+ Add Another Project</button>
+                </div>
+
+                <!-- Education -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-icon">05</span>
+                        Education
+                    </h2>
+                    
+                    <div class="form-group">
+                        <label for="degree">Degree</label>
+                        <input type="text" id="degree" name="degree" placeholder="Bachelor of Science in Computer Science">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="university">University / Institution</label>
+                            <input type="text" id="university" name="university" placeholder="Stanford University">
+                        </div>
+                        <div class="form-group">
+                            <label for="gradYear">Year</label>
+                            <input type="text" id="gradYear" name="gradYear" placeholder="2018">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-icon">06</span>
+                        Social Links
+                    </h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="github">GitHub</label>
+                            <input type="url" id="github" name="github" placeholder="https://github.com/username">
+                        </div>
+                        <div class="form-group">
+                            <label for="linkedin">LinkedIn</label>
+                            <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/username">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="twitter">Twitter</label>
+                            <input type="url" id="twitter" name="twitter" placeholder="https://twitter.com/username">
+                        </div>
+                        <div class="form-group">
+                            <label for="website">Personal Website</label>
+                            <input type="url" id="website" name="website" placeholder="https://yourwebsite.com">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-button">
+                        <span>Generate Portfolio</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/form.js"></script>
+</body>
+</html>
